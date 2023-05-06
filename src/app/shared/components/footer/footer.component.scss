@@ -1,0 +1,19 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: FontTitles;
+}
+
+mat-divider {
+    position: fixed;
+    bottom: 64px;
+    width: 100%;
+}
+
+span {
+    font-size: 0.8em;
+    width: 100%;
+    text-align: center;
+    font-family: FontRegular;
+}

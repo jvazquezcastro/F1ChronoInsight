@@ -1,0 +1,26 @@
+.grid-tile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 10px;
+    width: 450px;
+    height: 300px;
+    border-radius: 99999px;
+    background-color: rgb(255, 38, 38);
+}
+
+.grid-tile-content img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.grid-tile-content span {
+    font-family: "FontRegular";
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
