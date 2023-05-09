@@ -23,10 +23,7 @@ escuderia: any;
 
   constructor(private escuderiaService: EscuderiaService, private pilotoService: PilotoService) {}
 
-  ngOnInit() {
-    this.loadConstructors();
-    this.loadDriversByConstructors();
-  }
+
 
   loadConstructors() {
     this.escuderiaService.getCircuitsByYear(this.selectedYear).subscribe((response: any) => {

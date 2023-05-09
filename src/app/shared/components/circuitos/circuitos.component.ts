@@ -15,9 +15,6 @@ export class CircuitosComponent {
 
   constructor(private circuitoService: CircuitoService) {}
 
-  ngOnInit() {
-    this.loadCircuits();
-  }
 
   loadCircuits() {
     this.circuitoService.getCircuitsByYear(this.selectedYear).subscribe((response: any) => {

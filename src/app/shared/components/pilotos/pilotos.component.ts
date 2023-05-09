@@ -14,9 +14,6 @@ export class PilotosComponent {
 
   constructor(private pilotoService: PilotoService) {}
 
-  ngOnInit() {
-    this.loadCircuits();
-  }
 
   loadCircuits() {
     this.pilotoService.getCircuitsByYear(this.selectedYear).subscribe((response: any) => {
