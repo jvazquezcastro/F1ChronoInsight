@@ -1,1 +1,14 @@
-<p>escuderias works!</p>
+<mat-chip-listbox class="chip" aria-label="selectedYear">
+    <mat-chip-option *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
+</mat-chip-listbox>
+<div class="escuderiasDiv">
+    <div *ngFor="let escuderia of escuderias">
+        <h1>{{ escuderia.nombre }}</h1>
+        <h2>{{ escuderia.escuderiaId }}</h2>
+        <p>{{ escuderia.escuderiaId }}, {{ escuderia.nacionalidad }}, <a href="{{escuderia.url}}">{{escuderia.url}}</a></p>
+        <div *ngFor="let piloto of getPilotosByEscuderiaId(escuderia.escuderiaId)">
+            <h2>{{ piloto.apellido }}, {{ piloto.nombre }}, {{ piloto.nacionalidad }}, {{ piloto.escuderia }}</h2>
+        </div>
+        <br><br>
+    </div>
+</div>

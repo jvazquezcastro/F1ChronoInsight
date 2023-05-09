@@ -24,3 +24,29 @@
     text-align: center;
     text-decoration: underline;
 }
+
+.grid-container {
+    position: fixed;
+    top: 120px;
+    width: 100%;
+    font-family: FontTitles;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: whitesmoke;
+}
+
+a:active {
+    color: black;
+}

@@ -1,9 +1,7 @@
-<mat-chip-listbox aria-label="selectedYear">
+<mat-chip-listbox class="chip" aria-label="selectedYear">
     <mat-chip-option *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
-
-
-<div>
+<div class="circuitosDiv">
     <div *ngFor="let circuito of circuitos">
         <h2>{{ circuito.nombre }}</h2>
         <p>{{ circuito.ciudad }}, {{ circuito.pais }}, <a href="{{circuito.url}}">{{circuito.url}}</a></p>

@@ -1,11 +1,11 @@
-<mat-chip-listbox aria-label="Year selection">
-    <mat-chip-option selected>2023</mat-chip-option>
-    <mat-chip-option selected>2022</mat-chip-option>
-    <mat-chip-option selected>2021</mat-chip-option>
-    <mat-chip-option selected>2020</mat-chip-option>
-    <mat-chip-option selected>2019</mat-chip-option>
-    <mat-chip-option selected>2018</mat-chip-option>
-    <mat-chip-option selected>2017</mat-chip-option>
-    <mat-chip-option selected>2016</mat-chip-option>
-    <mat-chip-option selected>2015</mat-chip-option>
+<mat-chip-listbox class="chip" aria-label="selectedYear">
+    <mat-chip-option *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
+
+<div class="pilotosDiv">
+    <div *ngFor="let piloto of pilotos">
+        <h2>{{ piloto.nombre }} {{piloto.apellido}}</h2>
+        <p>{{ piloto.pilotoId }}, {{ piloto.fecha }}, {{ piloto.nacionalidad }}, <a href="{{piloto.url}}">{{piloto.url}}</a></p>
+        <br><br>
+    </div>
+</div>
