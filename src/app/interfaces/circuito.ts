@@ -3,4 +3,5 @@ export interface Circuito {
   pais: string,
   ciudad: string,
   url: string
+
 }
