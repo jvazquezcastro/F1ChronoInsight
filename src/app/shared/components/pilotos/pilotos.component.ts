@@ -22,7 +22,7 @@ export class PilotosComponent {
       this.pilotos = data.map((piloto: {
         driverId: string;
         dateOfBirth: string;
-        nacionality: string;
+        nationality: string;
         url: string;
         familyName: string;
         givenName: any;
@@ -32,7 +32,7 @@ export class PilotosComponent {
           nombre: piloto.givenName,
           apellido: piloto.familyName,
           fecha: piloto.dateOfBirth,
-          nacionalidad: piloto.nacionality,
+          nacionalidad: piloto.nationality,
           url: piloto.url
         } as Piloto;
       });
