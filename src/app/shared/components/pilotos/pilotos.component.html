@@ -1,11 +1,11 @@
 <mat-chip-listbox class="chip" aria-label="selectedYear">
-    <mat-chip-option *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
+    <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
 
 <div class="pilotosDiv">
     <div *ngFor="let piloto of pilotos">
         <h2>{{ piloto.nombre }} {{piloto.apellido}}</h2>
-        <p>{{ piloto.pilotoId }}, {{ piloto.fecha }}, {{ piloto.nacionalidad }}, <a href="{{piloto.url}}">{{piloto.url}}</a></p>
+        <p>{{ piloto.pilotoId }}, {{ piloto.fecha }}, {{ piloto.nacionalidad }}, <a href="{{piloto.url}}">{{piloto.url}}</a><img src="../../../../assets/flags/64/{{ piloto.nacionalidad }}.png"></p>
         <br><br>
     </div>
 </div>
