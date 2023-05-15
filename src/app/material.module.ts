@@ -4,6 +4,8 @@
   import { MatDividerModule} from '@angular/material/divider'
   import { MatGridListModule} from '@angular/material/grid-list'
   import { MatChipsModule } from '@angular/material/chips'
+  import { MatTableModule } from '@angular/material/table';
+
 
 
 
@@ -13,7 +15,8 @@
       MatIconModule,
       MatDividerModule,
       MatGridListModule,
-      MatChipsModule
+      MatChipsModule,
+      MatTableModule
     ]
   })
   export class MaterialModule { }

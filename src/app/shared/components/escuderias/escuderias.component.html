@@ -7,7 +7,7 @@
         <h2>{{ escuderia.escuderiaId }}</h2>
         <p>{{ escuderia.escuderiaId }}, {{ escuderia.nacionalidad }}, <a href="{{escuderia.url}}">{{escuderia.url}}</a></p>
         <div *ngFor="let piloto of getPilotosByEscuderiaId(escuderia.escuderiaId)">
-            <h2>{{ piloto.apellido }}, {{ piloto.nombre }}, {{ piloto.nacionalidad }}, {{ piloto.escuderia }}</h2>
+            <h2>{{ piloto.pilotoId }} {{ piloto.apellido }}, {{ piloto.nombre }}, {{ piloto.nacionalidad }}, {{ piloto.escuderia }}</h2>
         </div>
         <br><br>
     </div>

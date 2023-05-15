@@ -1,1 +1,37 @@
-<p>temporadas works!</p>
+<mat-chip-listbox class="chip" aria-label="selectedYear">
+    <mat-chip-option *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
+</mat-chip-listbox>
+
+<mat-table [dataSource]="dataSource" class="temporadasTable">
+
+    <!-- Column definitions -->
+    <ng-container matColumnDef="posicion">
+        <mat-header-cell *matHeaderCellDef> Posición </mat-header-cell>
+        <mat-cell *matCellDef="let piloto"> {{ piloto.posicion }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let piloto"> {{ piloto.nombre }} {{ piloto.apellido }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="escuderia">
+        <mat-header-cell *matHeaderCellDef> Escuderia </mat-header-cell>
+        <mat-cell *matCellDef="let piloto"> {{ piloto.escuderia }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="victorias">
+        <mat-header-cell *matHeaderCellDef> Victorias </mat-header-cell>
+        <mat-cell *matCellDef="let piloto"> {{ piloto.victorias }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="puntos">
+        <mat-header-cell *matHeaderCellDef> Puntos </mat-header-cell>
+        <mat-cell *matCellDef="let piloto"> {{ piloto.puntos }} </mat-cell>
+    </ng-container>
+
+    <!-- Table rows -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"></mat-row>
+
+</mat-table>

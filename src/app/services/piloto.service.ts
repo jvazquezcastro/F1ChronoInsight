@@ -11,13 +11,18 @@ export class PilotoService {
 
   constructor(private http: HttpClient) {}
 
-  getCircuitsByYear(year: string): Observable<any> {
+  getDriversByYear(year: string): Observable<any> {
     const fullUrl = `${this.url}${year}/drivers.json`;
     return this.http.get<Piloto[]>(fullUrl);
   }
 
   getDriversByConstructor(year: string, escuderia: string): Observable<any>{
     const fullUrl = `${this.url}${year}/constructors/${escuderia}/drivers.json`;
+    return this.http.get<Piloto[]>(fullUrl);
+  }
+
+  getDriversFromSeason(year: string): Observable<any>{
+    const fullUrl = `${this.url}${year}/driverStandings.json`;
     return this.http.get<Piloto[]>(fullUrl);
   }
 }

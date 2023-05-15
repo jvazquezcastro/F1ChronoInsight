@@ -5,5 +5,8 @@ export interface Piloto {
   fecha: string,
   nacionalidad: string,
   url: string,
-  escuderia: string
+  escuderia: string,
+  puntos: string,
+  posicion:string
+  victorias: string
 }

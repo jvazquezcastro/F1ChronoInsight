@@ -15,8 +15,8 @@ export class PilotosComponent {
   constructor(private pilotoService: PilotoService) {}
 
 
-  loadCircuits() {
-    this.pilotoService.getCircuitsByYear(this.selectedYear).subscribe((response: any) => {
+  loadDrivers() {
+    this.pilotoService.getDriversByYear(this.selectedYear).subscribe((response: any) => {
       const data = response.MRData.DriverTable.Drivers;
       console.log('Year selected:', this.selectedYear);
       this.pilotos = data.map((piloto: {
@@ -39,15 +39,9 @@ export class PilotosComponent {
     });
   }
 
-  getCircuitsByYear(year: string) {
-    this.pilotoService.getCircuitsByYear(year).subscribe(
-      pilotos => this.pilotos = pilotos
-    );
-  }
-
   onYearSelected(year: string) {
     console.log('Year selected:', year);
     this.selectedYear = year;
-    this.loadCircuits();
+    this.loadDrivers();
   }
 }
