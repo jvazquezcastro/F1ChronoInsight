@@ -8,40 +8,45 @@ import { PilotoService } from 'src/app/services/piloto.service';
   styleUrls: ['./pilotos.component.scss']
 })
 export class PilotosComponent {
-  public pilotos: Piloto[] = [];
-  selectedYear: string = '';
-  years = [  "2023",  "2022",  "2021",  "2020",  "2019",  "2018",  "2017",  "2016",  "2015",  "2014",  "2013",  "2012",  "2011",  "2010",  "2009",  "2008",  "2007",  "2006",  "2005",  "2004",  "2003",  "2002",  "2001",  "2000"];
+  pilotos: Piloto[] = [];
 
   constructor(private pilotoService: PilotoService) {}
 
-
-  loadDrivers() {
-    this.pilotoService.getDriversByYear(this.selectedYear).subscribe((response: any) => {
-      const data = response.MRData.DriverTable.Drivers;
-      console.log('Year selected:', this.selectedYear);
-      this.pilotos = data.map((piloto: {
-        driverId: string;
-        dateOfBirth: string;
-        nationality: string;
-        url: string;
-        familyName: string;
-        givenName: any;
-}) => {
-        return {
-          pilotoId: piloto.driverId,
-          nombre: piloto.givenName,
-          apellido: piloto.familyName,
-          fecha: piloto.dateOfBirth,
-          nacionalidad: piloto.nationality,
-          url: piloto.url
-        } as Piloto;
-      });
-    });
+  ngOnInit() {
+    this.obtenerPilotosDesde2000Hasta2023();
   }
 
-  onYearSelected(year: string) {
-    console.log('Year selected:', year);
-    this.selectedYear = year;
-    this.loadDrivers();
+  obtenerPilotosDesde2000Hasta2023() {
+    const years = [  "2023",  "2022",  "2021",  "2020",  "2019",  "2018",  "2017"];
+
+    years.forEach(year => {
+      this.pilotoService.getDriversByYear(year).subscribe(data => {
+        const driversByYear = data.MRData.DriverTable.Drivers;
+
+        driversByYear.forEach((piloto: {
+          permanentNumber: string;
+          url: string; driverId: any; code: any; givenName: any; familyName: any; dateOfBirth: any; nationality: any;
+}) => {
+          if (!this.pilotos.find(p => p.pilotoId === piloto.driverId)) {
+            const nuevoPiloto: Piloto = {
+              pilotoId: piloto.driverId,
+              nombre: piloto.givenName,
+              apellido: piloto.familyName,
+              fecha: piloto.dateOfBirth,
+              nacionalidad: piloto.nationality,
+              url: piloto.url,
+              escuderia: '',
+              puntos: '',
+              posicion: '',
+              victorias: '',
+              dorsal: piloto.permanentNumber
+            };
+            console.log(this.pilotos.length)
+            this.pilotos.push(nuevoPiloto);
+          }
+        });
+      });
+    });
+
   }
 }

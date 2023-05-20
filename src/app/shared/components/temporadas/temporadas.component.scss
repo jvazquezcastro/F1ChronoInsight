@@ -1,14 +1,39 @@
-.temporadasTable {
-    margin-left: 30px;
-    margin-top: 200px;
-    margin-bottom: 100px;
-}
-
 .chip {
     padding: 10px;
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
     position: fixed;
     top: 130px;
     width: 100%;
     font-family: FontTitles;
+}
+
+.tablaResultados {
+    margin-left: 80px;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    font-family: FontRegular;
+    width: 90%;
+    border-collapse: collapse;
+}
+
+.tablaResultados th,
+.tablaResultados td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    /* Centrar contenido */
+}
+
+.tablaResultados th {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #f5f5f5;
+}
+
+.tablaResultados tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.tablaResultados tbody tr:last-child td {
+    border-bottom: none;
 }

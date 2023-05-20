@@ -4,6 +4,7 @@ export interface Piloto {
   apellido: string,
   fecha: string,
   nacionalidad: string,
+  dorsal: string,
   url: string,
   escuderia: string,
   puntos: string,

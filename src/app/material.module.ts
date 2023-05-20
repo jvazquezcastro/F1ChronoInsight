@@ -6,6 +6,8 @@
   import { MatChipsModule } from '@angular/material/chips'
   import { MatTableModule } from '@angular/material/table';
   import {MatButtonModule} from '@angular/material/button';
+  import { MatCardModule } from '@angular/material/card';
+
 
 
 
@@ -18,7 +20,8 @@
       MatGridListModule,
       MatChipsModule,
       MatTableModule,
-      MatButtonModule
+      MatButtonModule,
+      MatCardModule
     ]
   })
   export class MaterialModule { }

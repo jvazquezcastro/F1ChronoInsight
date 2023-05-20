@@ -2,36 +2,23 @@
     <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
 
-<mat-table [dataSource]="dataSource" class="temporadasTable">
-
-    <!-- Column definitions -->
-    <ng-container matColumnDef="posicion">
-        <mat-header-cell *matHeaderCellDef> Posición </mat-header-cell>
-        <mat-cell *matCellDef="let piloto"> {{ piloto.posicion }} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="nombre">
-        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-        <mat-cell *matCellDef="let piloto"> {{ piloto.nombre }} {{ piloto.apellido }} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="escuderia">
-        <mat-header-cell *matHeaderCellDef> Escuderia </mat-header-cell>
-        <mat-cell *matCellDef="let piloto"> {{ piloto.escuderia }} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="victorias">
-        <mat-header-cell *matHeaderCellDef> Victorias </mat-header-cell>
-        <mat-cell *matCellDef="let piloto"> {{ piloto.victorias }} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="puntos">
-        <mat-header-cell *matHeaderCellDef> Puntos </mat-header-cell>
-        <mat-cell *matCellDef="let piloto"> {{ piloto.puntos }} </mat-cell>
-    </ng-container>
-
-    <!-- Table rows -->
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"></mat-row>
-
-</mat-table>
+<table class="tablaResultados">
+    <thead>
+        <tr>
+            <th>Posición</th>
+            <th>Nombre</th>
+            <th>Escuderia</th>
+            <th>Victorias</th>
+            <th>Puntos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let piloto of pilotos">
+            <td>{{ piloto.posicion }}</td>
+            <td>{{ piloto.nombre }} {{ piloto.apellido }}</td>
+            <td>{{ piloto.escuderia }}</td>
+            <td>{{ piloto.victorias }}</td>
+            <td>{{ piloto.puntos }}</td>
+        </tr>
+    </tbody>
+</table>

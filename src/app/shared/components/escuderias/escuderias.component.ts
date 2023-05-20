@@ -52,12 +52,15 @@ export class EscuderiasComponent {
     forkJoin(requests).subscribe(responses => {
       responses.forEach((response, index) => {
         const data = response.MRData.DriverTable.Drivers;
-        this.pilotos.push(...data.map((piloto: { driverId: any; givenName: any; familyName: any; nationality: any; }) => ({
+        this.pilotos.push(...data.map((piloto: {
+          permanentNumber: string; driverId: any; givenName: any; familyName: any; nationality: any;
+}) => ({
           pilotoId: piloto.driverId,
           nombre: piloto.givenName,
           apellido: piloto.familyName,
           nacionalidad: piloto.nationality,
-          escuderia: this.escuderias[index].escuderiaId
+          escuderia: this.escuderias[index].escuderiaId,
+          dorsal: piloto.permanentNumber
         } as Piloto)));
       });
     });
@@ -82,5 +85,10 @@ export class EscuderiasComponent {
     this.loadDriversByConstructors();
 
   }
+
+  getPilotoIndex(escuderiaId: string, piloto: any): number {
+    const pilotos = this.getPilotosByEscuderiaId(escuderiaId);
+    return pilotos.indexOf(piloto) + 1;
+}
 
 }

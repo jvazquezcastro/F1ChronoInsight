@@ -1,11 +1,19 @@
-<mat-chip-listbox class="chip" aria-label="selectedYear">
-    <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
-</mat-chip-listbox>
-
-<div class="pilotosDiv">
-    <div *ngFor="let piloto of pilotos">
-        <h2>{{ piloto.nombre }} {{piloto.apellido}}</h2>
-        <p>{{ piloto.pilotoId }}, {{ piloto.fecha }}, {{ piloto.nacionalidad }}, <a href="{{piloto.url}}">{{piloto.url}}</a><img src="../../../../assets/flags/64/{{ piloto.nacionalidad }}.png"></p>
-        <br><br>
-    </div>
-</div>
+<section class="pilotos">
+    <mat-card class="card" *ngFor="let piloto of pilotos">
+        <mat-card-header class="header">
+            {{ piloto.nombre }} {{piloto.apellido}}
+        </mat-card-header>
+        <mat-card-content class="content">
+            <p>Nacionalidad: {{ piloto.nacionalidad }}</p>
+            <img src="../../../../assets/flags/64/{{ piloto.nacionalidad }}.png">
+            <p><img class="pilotosImg" src="../../../../assets/pilotos/{{ piloto.pilotoId }}.png"></p>
+        </mat-card-content>
+        <mat-card-content>
+            <p>Dorsal: {{ piloto.dorsal}} </p>
+            <p>Fecha de nacimiento: {{ piloto.fecha }}</p>
+        </mat-card-content>
+        <mat-card-actions class="actions">
+            <a mat-raised-button color="warn" href="{{piloto.url}}" target="_blank">Más Información</a>
+        </mat-card-actions>
+    </mat-card>
+</section>

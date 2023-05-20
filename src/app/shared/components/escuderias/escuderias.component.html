@@ -1,14 +1,30 @@
 <mat-chip-listbox class="chip" aria-label="selectedYear">
     <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
-<div class="escuderiasDiv">
-    <div *ngFor="let escuderia of escuderias">
-        <h1>{{ escuderia.nombre }}</h1>
-        <h2>{{ escuderia.escuderiaId }}</h2>
-        <p>{{ escuderia.escuderiaId }}, {{ escuderia.nacionalidad }} <img src="../../../../assets/flags/64/{{ escuderia.nacionalidad }}.png">, <a href="{{escuderia.url}}">{{escuderia.url}}</a></p>
-        <div *ngFor="let piloto of getPilotosByEscuderiaId(escuderia.escuderiaId)">
-            <h2>{{ piloto.pilotoId }} {{ piloto.apellido }}, {{ piloto.nombre }}, {{ piloto.nacionalidad }}<img src="../../../../assets/flags/48/{{ piloto.nacionalidad }}.png"></h2>
-        </div>
-        <br><br>
+<section class="escuderias">
+    <div class="card-container">
+        <mat-card class="card" *ngFor="let escuderia of escuderias">
+            <div class="card-header">
+                {{ escuderia.nombre }} {{ escuderia.escuderiaId }}
+                <img src="../../../../assets/flags/64/{{ escuderia.nacionalidad }}.png">
+            </div>
+            <div class="card-content">
+                <div class="escuderia-info">
+
+                    <img class="escuderia-img" src="../../../../assets/escuderias/{{ escuderia.escuderiaId }}.png">
+                </div>
+                <div class="pilotos">
+                    <div *ngFor="let piloto of getPilotosByEscuderiaId(escuderia.escuderiaId)">
+                        <p class="pilotoNombre">Piloto {{ getPilotoIndex(escuderia.escuderiaId, piloto) }}</p>
+                        <p>{{ piloto.nombre }} {{ piloto.apellido }} ({{piloto.dorsal }})</p>
+                        <p><img src="../../../../assets/flags/48/{{ piloto.nacionalidad }}.png"></p>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+            <mat-card-actions class="actions">
+                <a mat-raised-button color="warn" href="{{ escuderia.url }}" target="_blank">Más Información</a>
+            </mat-card-actions>
+        </mat-card>
     </div>
-</div>
+</section>
