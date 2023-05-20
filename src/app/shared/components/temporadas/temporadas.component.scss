@@ -4,14 +4,16 @@
     position: fixed;
     top: 130px;
     width: 100%;
-    font-family: FontTitles;
+}
+
+mat-chip-option {
+    font-family: FontRegular;
 }
 
 .tablaResultados {
     margin-left: 80px;
     margin-top: 200px;
     margin-bottom: 100px;
-    font-family: FontRegular;
     width: 90%;
     border-collapse: collapse;
 }
@@ -24,10 +26,15 @@
     /* Centrar contenido */
 }
 
+.tablaResultados td {
+    font-family: FontRegular;
+}
+
 .tablaResultados th {
     font-weight: bold;
     text-transform: uppercase;
     background-color: #f5f5f5;
+    font-family: FontTitles;
 }
 
 .tablaResultados tbody tr:hover {
