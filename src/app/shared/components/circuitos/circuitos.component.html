@@ -12,7 +12,7 @@
         </mat-card-content>
         <mat-card-content>
             <img width="350" height="220" src="../../../../assets/circuitos/{{ circuito.ciudad }}.png">
-            <p>{{ circuito.ciudad }}, {{ circuito.pais }}</p>
+            <p>{{ traducirCiudad (circuito.ciudad) }}, {{ traducirPais(circuito.pais) }}</p>
         </mat-card-content>
         <mat-card-actions class="actions">
             <a mat-raised-button color="warn" href="{{circuito.url}}" target="_blank">Más Información</a>

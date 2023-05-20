@@ -12,8 +12,11 @@ import { EscuderiasComponent } from './shared/components/escuderias/escuderias.c
 import { PilotosComponent } from './shared/components/pilotos/pilotos.component';
 import { CircuitosComponent } from './shared/components/circuitos/circuitos.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,6 @@ import { MatTableModule } from '@angular/material/table';
     EscuderiasComponent,
     PilotosComponent,
     CircuitosComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -32,11 +34,21 @@ import { MatTableModule } from '@angular/material/table';
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[]
+  exports: []
 })
-export class AppModule {
+export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
 }

@@ -4,7 +4,7 @@
             {{ piloto.nombre }} {{piloto.apellido}}
         </mat-card-header>
         <mat-card-content class="content">
-            <p>Nacionalidad: {{ piloto.nacionalidad }}</p>
+            <p>Nacionalidad: {{ traducirNacionalidad(piloto.nacionalidad) }}</p>
             <img src="../../../../assets/flags/64/{{ piloto.nacionalidad }}.png">
             <p><img class="pilotosImg" src="../../../../assets/pilotos/{{ piloto.pilotoId }}.png"></p>
         </mat-card-content>

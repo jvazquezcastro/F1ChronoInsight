@@ -2,24 +2,26 @@
     <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
 <section class="escuderias">
-    <div class="card-container">
+    <div class="cardDiv">
         <mat-card class="card" *ngFor="let escuderia of escuderias">
-            <div class="card-header">
+            <div class="header">
                 {{ escuderia.nombre }} {{ escuderia.escuderiaId }}
                 <img src="../../../../assets/flags/64/{{ escuderia.nacionalidad }}.png">
             </div>
-            <div class="card-content">
-                <div class="escuderia-info">
-
-                    <img class="escuderia-img" src="../../../../assets/escuderias/{{ escuderia.escuderiaId }}.png">
+            <div class="content">
+                <div class="escuderiaInfo">
+                    <img class="escuderiaImg" src="../../../../assets/escuderias/{{ escuderia.escuderiaId }}.png">
                 </div>
                 <div class="pilotos">
-                    <div *ngFor="let piloto of getPilotosByEscuderiaId(escuderia.escuderiaId)">
-                        <p class="pilotoNombre">Piloto {{ getPilotoIndex(escuderia.escuderiaId, piloto) }}</p>
-                        <p>{{ piloto.nombre }} {{ piloto.apellido }} ({{piloto.dorsal }})</p>
-                        <p><img src="../../../../assets/flags/48/{{ piloto.nacionalidad }}.png"></p>
-                        <br><br>
+                    <div *ngFor="let piloto of getPilotosByEscuderiaId(escuderia.escuderiaId); let i = index">
+                        <div *ngIf="i < 2">
+                            <p class="pilotoNombre">Piloto {{ getPilotoIndex(escuderia.escuderiaId, piloto) }}</p>
+                            <p>{{ piloto.nombre }} {{ piloto.apellido }} ({{piloto.dorsal }})</p>
+                            <p><img src="../../../../assets/flags/48/{{ piloto.nacionalidad }}.png"></p>
+                            <br><br>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <mat-card-actions class="actions">

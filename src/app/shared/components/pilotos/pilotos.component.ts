@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Piloto } from 'src/app/interfaces/piloto';
 import { PilotoService } from 'src/app/services/piloto.service';
 
@@ -10,7 +11,9 @@ import { PilotoService } from 'src/app/services/piloto.service';
 export class PilotosComponent {
   pilotos: Piloto[] = [];
 
-  constructor(private pilotoService: PilotoService) {}
+  constructor(private pilotoService: PilotoService, private traductor: TranslateService) {
+    this.traductor.use('esp');
+  }
 
   ngOnInit() {
     this.obtenerPilotosDesde2000Hasta2023();
@@ -47,6 +50,9 @@ export class PilotosComponent {
         });
       });
     });
+  }
 
+  traducirNacionalidad(nacionalidad: string): string {
+    return this.traductor.instant('NACIONALIDAD.' + nacionalidad);
   }
 }

@@ -8,6 +8,11 @@
     z-index: 1;
 }
 
+mat-chip-option {
+    font-family: FontTitles;
+    font-size: 1.1em;
+}
+
 section.escuderias {
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +22,7 @@ section.escuderias {
     z-index: 0;
 }
 
-.card-container {
+.cardDiv {
     display: flex;
     flex-wrap: wrap;
 }
@@ -34,29 +39,29 @@ section.escuderias {
     z-index: 0;
 }
 
-.card-header {
+.header {
     font-size: 24px;
     font-family: FontTitles;
     padding: 16px;
 }
 
-.card-content {
+.content {
     padding: 16px;
     display: flex;
 }
 
-.escuderia-info {
+.escuderiaInfo {
     flex: 0 0 300px;
     margin-right: 20px;
 }
 
-.escuderia-info p {
+.escuderiaInfo p {
     font-size: 18px;
     margin-bottom: 8px;
     font-family: FontRegular;
 }
 
-.escuderia-img {
+.escuderiaImg {
     width: 100%;
     height: auto;
     max-width: 300px;
