@@ -5,14 +5,14 @@
 <section class="circuitos">
     <mat-card class="card" *ngFor="let circuito of circuitos">
         <mat-card-header class="header">
-            {{ circuito.nombre }}
+            {{ traducirCircuito(circuito.nombre) }}
         </mat-card-header>
         <mat-card-content class="content">
             <p><img src="../../../../assets/flags/circuits/{{ circuito.pais }}.png"></p>
         </mat-card-content>
         <mat-card-content>
             <img width="350" height="220" src="../../../../assets/circuitos/{{ circuito.ciudad }}.png">
-            <p>{{ traducirCiudad (circuito.ciudad) }}, {{ traducirPais(circuito.pais) }}</p>
+            <p>{{ traducirCiudad(circuito.ciudad) }}, {{ traducirPais(circuito.pais) }}</p>
         </mat-card-content>
         <mat-card-actions class="actions">
             <a mat-raised-button color="warn" href="{{circuito.url}}" target="_blank">Más Información</a>

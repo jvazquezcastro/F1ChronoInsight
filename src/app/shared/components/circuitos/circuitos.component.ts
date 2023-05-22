@@ -56,4 +56,9 @@ export class CircuitosComponent {
     const traduccion = this.traductor.instant('CIUDAD.' + ciudad);
     return traduccion !== 'CIUDAD.' + ciudad ? traduccion : ciudad;
   }
+
+  traducirCircuito(circuito: string): string{
+    const traduccion = this.traductor.instant('CIRCUITO.' + circuito);
+    return traduccion !== 'CIRCUITO.' + circuito ? traduccion : circuito;
+  }
 }
