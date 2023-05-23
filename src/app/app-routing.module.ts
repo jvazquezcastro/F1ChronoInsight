@@ -5,6 +5,7 @@ import { CircuitosComponent } from './shared/components/circuitos/circuitos.comp
 import { PilotosComponent } from './shared/components/pilotos/pilotos.component';
 import { TemporadasComponent } from './shared/components/temporadas/temporadas.component';
 import { EscuderiasComponent } from './shared/components/escuderias/escuderias.component';
+import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
 
 const routes: Routes = [
   {path:'', component: FrontPageComponent},
@@ -12,7 +13,7 @@ const routes: Routes = [
   {path:'pilotos', component: PilotosComponent},
   {path:'temporadas', component: TemporadasComponent},
   {path:'escuderias', component: EscuderiasComponent},
-  {path:'**', redirectTo:''}
+  {path:'**', component: ErrorPageComponent}
 ];
 
 @NgModule({
