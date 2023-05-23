@@ -5,7 +5,7 @@
     <div class="cardDiv">
         <mat-card class="card" *ngFor="let escuderia of escuderias">
             <div class="header">
-                {{ escuderia.nombre }} {{ escuderia.escuderiaId }}
+                {{ escuderia.nombre }}&nbsp;&nbsp;
                 <img src="../../../../assets/flags/64/{{ escuderia.nacionalidad }}.png">
             </div>
             <div class="content">
@@ -17,7 +17,7 @@
                         <div *ngIf="i < 2">
                             <p class="pilotoNombre">Piloto {{ i + 1 }}</p>
                             <p>{{ piloto.nombre }} {{ piloto.apellido }} ({{ piloto.dorsal }})</p>
-                            <p><img src="../../../../assets/flags/48/{{ piloto.nacionalidad }}.png"></p>
+                            <p><img class="pilotoFlag" src="../../../../assets/flags/48/{{ piloto.nacionalidad }}.png"></p>
                             <br><br>
                         </div>
                     </div>

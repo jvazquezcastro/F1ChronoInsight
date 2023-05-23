@@ -40,6 +40,8 @@ section.escuderias {
 }
 
 .header {
+    display: flex;
+    align-items: center;
     font-size: 24px;
     font-family: FontTitles;
     padding: 16px;
@@ -53,12 +55,6 @@ section.escuderias {
 .escuderiaInfo {
     flex: 0 0 300px;
     margin-right: 20px;
-}
-
-.escuderiaInfo p {
-    font-size: 18px;
-    margin-bottom: 8px;
-    font-family: FontRegular;
 }
 
 .escuderiaImg {
@@ -101,6 +97,9 @@ section.escuderias {
 
 p {
     font-size: 20px;
-    margin-bottom: 16px;
     font-family: FontRegular;
+}
+
+.pilotoFlag {
+    margin-top: -15px;
 }
