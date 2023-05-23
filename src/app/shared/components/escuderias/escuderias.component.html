@@ -15,13 +15,12 @@
                 <div class="pilotos">
                     <div *ngFor="let piloto of getPilotosByEscuderiaId(escuderia.escuderiaId); let i = index">
                         <div *ngIf="i < 2">
-                            <p class="pilotoNombre">Piloto {{ getPilotoIndex(escuderia.escuderiaId, piloto) }}</p>
-                            <p>{{ piloto.nombre }} {{ piloto.apellido }} ({{piloto.dorsal }})</p>
+                            <p class="pilotoNombre">Piloto {{ i + 1 }}</p>
+                            <p>{{ piloto.nombre }} {{ piloto.apellido }} ({{ piloto.dorsal }})</p>
                             <p><img src="../../../../assets/flags/48/{{ piloto.nacionalidad }}.png"></p>
                             <br><br>
                         </div>
                     </div>
-
                 </div>
             </div>
             <mat-card-actions class="actions">

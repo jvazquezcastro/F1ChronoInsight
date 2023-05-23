@@ -33,3 +33,15 @@ header {
     font-family: FontTitles;
     z-index: 1;
 }
+
+.inicio {
+    color: black;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+.inicio:hover {
+    color: white;
+}
