@@ -2,6 +2,10 @@
     <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
 
+<div class="titulo">Circuitos
+    <a href="http://localhost:4200/" class="inicio">Inicio</a>
+</div>
+
 <section class="circuitos">
     <mat-card class="card" *ngFor="let circuito of circuitos">
         <mat-card-header class="header">

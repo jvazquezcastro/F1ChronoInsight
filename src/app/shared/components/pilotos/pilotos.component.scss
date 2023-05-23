@@ -7,6 +7,27 @@ section.pilotos {
     z-index: 0;
 }
 
+.titulo {
+    font-family: FontTitles;
+    font-size: 2em;
+    position: fixed;
+    top: 130px;
+    left: 30px;
+    width: 100%;
+    padding: 10px;
+    background-color: whitesmoke;
+    z-index: 1;
+}
+
+.inicio {
+    color: black;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    margin-left: 1850px;
+    margin-right: auto;
+    text-decoration: underline;
+}
+
 .pilotosImg {
     width: 300px;
     height: 300px;

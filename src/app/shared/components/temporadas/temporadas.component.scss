@@ -11,9 +11,30 @@ mat-chip-option {
     font-size: 1.1em;
 }
 
+.titulo {
+    font-family: FontTitles;
+    font-size: 2em;
+    position: fixed;
+    top: 190px;
+    left: 40px;
+    width: 100%;
+    padding: 10px;
+    background-color: whitesmoke;
+    z-index: 1;
+}
+
+.inicio {
+    color: black;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    margin-left: 1680px;
+    margin-right: auto;
+    text-decoration: underline;
+}
+
 .tablaResultados {
     margin-left: 100px;
-    margin-top: 220px;
+    margin-top: 250px;
     margin-bottom: 100px;
     width: 90%;
     border-collapse: collapse;
