@@ -11,6 +11,9 @@ export class CircuitoService {
 
   constructor(private http: HttpClient) {}
 
+  /*
+  Función que recoge el año seleccionado y hace la petición REST
+  */
   getCircuitsByYear(year: string): Observable<any> {
     const fullUrl = `${this.url}${year}/circuits.json`;
     return this.http.get<Circuito[]>(fullUrl);

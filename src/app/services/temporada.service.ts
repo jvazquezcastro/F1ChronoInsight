@@ -10,6 +10,9 @@ export class TemporadaService {
 
   constructor(private http: HttpClient) { }
 
+  /*
+  Función que recoge el año seleccionado y hace la petición REST
+  */
   getSeasonByYear(year: string){
     const fullUrl = `${this.url}${year}/driverStandings.json`;
     return this.http.get<Temporada>(fullUrl);

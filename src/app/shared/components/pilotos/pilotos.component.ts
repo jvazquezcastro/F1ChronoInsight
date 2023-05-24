@@ -15,10 +15,14 @@ export class PilotosComponent {
     this.traductor.use('esp');
   }
 
+  //Al inicializar el componente se la función que carga los pilotos
   ngOnInit() {
     this.obtenerPilotosDesde2000Hasta2023();
   }
 
+  /*
+  Función que carga los pilotos de todos los años que contenga el array years
+   */
   obtenerPilotosDesde2000Hasta2023() {
     const years = [  "2023",  "2022",  "2021",  "2020",
     "2019",  "2018",  "2017", "2016", "2015", "2014", "2013",
@@ -28,11 +32,11 @@ export class PilotosComponent {
     years.forEach(year => {
       this.pilotoService.getDriversByYear(year).subscribe(data => {
         const driversByYear = data.MRData.DriverTable.Drivers;
-
         driversByYear.forEach((piloto: {
           permanentNumber: string;
           url: string; driverId: any; code: any; givenName: any; familyName: any; dateOfBirth: any; nationality: any;
 }) => {
+          //Este if soluciona la posible repetición de pilotos
           if (!this.pilotos.find(p => p.pilotoId === piloto.driverId)) {
             const nuevoPiloto: Piloto = {
               pilotoId: piloto.driverId,
@@ -55,6 +59,9 @@ export class PilotosComponent {
     });
   }
 
+  /*
+  Funciones de traducción
+  */
   traducirNacionalidad(nacionalidad: string): string {
     return this.traductor.instant('NACIONALIDAD.' + nacionalidad);
   }

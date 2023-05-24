@@ -28,17 +28,8 @@ export class CircuitosComponent {
     this.loadCircuits();
   }
 
-   /*
-  Función que recoge el año seleccionado y hace la petición REST
-  */
-  getCircuitsByYear(year: string) {
-    this.circuitoService.getCircuitsByYear(year).subscribe(
-      circuitos => this.circuitos = circuitos
-    );
-  }
-
   /*
-  Función que carga los circuitos y los guarda en un array de Circuitos
+  Función que carga los circuitos mediante la peticion del service y los guarda en un array de Circuitos
   */
   loadCircuits() {
     this.circuitoService.getCircuitsByYear(this.selectedYear).subscribe((response: any) => {

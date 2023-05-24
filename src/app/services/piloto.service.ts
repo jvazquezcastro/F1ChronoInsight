@@ -11,16 +11,25 @@ export class PilotoService {
 
   constructor(private http: HttpClient) {}
 
+  /*
+  Función que recoge el año seleccionado y hace la petición REST
+  */
   getDriversByYear(year: string): Observable<any> {
     const fullUrl = `${this.url}${year}/drivers.json`;
     return this.http.get<Piloto[]>(fullUrl);
   }
 
+  /*
+  Función que recoge el año seleccionado y la escudería y hace la petición REST
+  */
   getDriversByConstructor(year: string, escuderia: string): Observable<any>{
     const fullUrl = `${this.url}${year}/constructors/${escuderia}/drivers.json`;
     return this.http.get<Piloto[]>(fullUrl);
   }
 
+  /*
+  Función que recoge el año seleccionado y hace la petición REST
+  */
   getDriversFromSeason(year: string): Observable<any>{
     const fullUrl = `${this.url}${year}/driverStandings.json`;
     return this.http.get<Piloto[]>(fullUrl);

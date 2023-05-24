@@ -11,7 +11,10 @@ export class EscuderiaService {
 
   constructor(private http: HttpClient) {}
 
-  getCircuitsByYear(year: string): Observable<any> {
+  /*
+  Función que recoge el año seleccionado y hace la petición REST
+  */
+  getDriversByYear(year: string): Observable<any> {
     const fullUrl = `${this.url}${year}/constructors.json`;
     return this.http.get<Escuderia[]>(fullUrl);
   }

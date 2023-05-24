@@ -18,8 +18,23 @@ export class EscuderiasComponent {
 
   constructor(private escuderiaService: EscuderiaService, private pilotoService: PilotoService) {}
 
+   /*
+  Función que actualiza variables y llama a funciones al seleccionar un año
+  */
+  onYearSelected(year: string) {
+    console.log('Year selected:', year);
+    this.selectedYear = year;
+    //Vaciar el array de pilotos para que se refresquen al cambiar de año
+    this.pilotos.splice(0);
+    this.loadDriversByConstructors();
+    this.loadConstructors();
+  }
+
+  /*
+  Función que carga las escuderías mediante la peticion del service y los guarda en un array de Escuderías
+  */
   loadConstructors() {
-    this.escuderiaService.getCircuitsByYear(this.selectedYear).subscribe((response: any) => {
+    this.escuderiaService.getDriversByYear(this.selectedYear).subscribe((response: any) => {
       const data = response.MRData.ConstructorTable.Constructors;
       console.log('Year selected:', this.selectedYear);
       this.escuderias = data.map((escuderia: any) => {
@@ -33,10 +48,21 @@ export class EscuderiasComponent {
     });
   }
 
+  /*
+  Función que carga los pilotos mediante la peticion del service y los guarda en un array de Pilotos
+  */
   loadDriversByConstructors() {
+  /*
+  Por cada escuderia se hace una petición de recoger sus pilotos pasándole por parámetro el año seleccionado
+  y el id de la escuderia y lo guarda en el array requests
+  */
     const requests = this.escuderias.map(escuderia =>
       this.pilotoService.getDriversByConstructor(this.selectedYear, escuderia.escuderiaId)
     );
+    /*
+    La función forkJoin se utiliza para solucionar los problemas de asincronía combinando todas las requests en una.
+    Se crea el piloto y se añade con push() al array de Pilotos
+    */
     forkJoin(requests).subscribe(responses => {
       responses.forEach((response, index) => {
         const data = response.MRData.DriverTable.Drivers;
@@ -52,15 +78,15 @@ export class EscuderiasComponent {
     });
   }
 
+    /*
+  Función que se encarga de asignar a cada escuderia sus piotos
+  */
   getPilotosByEscuderiaId(escuderiaId: string): Piloto[] {
+    /*
+    Usa la función filter para recorrer el array de pilotos y retornar un piloto si su escuderia
+    es igual a la que le llega por parámetro
+    */
     return this.pilotos.filter(p => p.escuderia == escuderiaId);
   }
 
-  onYearSelected(year: string) {
-    console.log('Year selected:', year);
-    this.selectedYear = year;
-    this.pilotos.splice(0);
-    this.loadDriversByConstructors();
-    this.loadConstructors();
-  }
 }
