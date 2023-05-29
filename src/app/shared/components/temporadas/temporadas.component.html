@@ -2,18 +2,18 @@
     <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
 
-<div class="titulo">Temporadas
-    <a href="http://localhost:4200/" class="inicio">Inicio</a>
+<div class="titulo">{{traducirMiscelanea('TEMPORADAS')}}
+    <a href="http://localhost:4200/" class="inicio">{{traducirMiscelanea('INICIO')}}</a>
 </div>
 
 <table class="tablaResultados">
     <thead>
         <tr>
-            <th>Posición</th>
-            <th>Nombre</th>
-            <th>Escudería</th>
-            <th>Victorias</th>
-            <th>Puntos</th>
+            <th>{{traducirMiscelanea('POSICION')}}</th>
+            <th>{{traducirMiscelanea('NOMBRE')}}</th>
+            <th>{{traducirMiscelanea('ESCUDERIA')}}</th>
+            <th>{{traducirMiscelanea('VICTORIAS')}}</th>
+            <th>{{traducirMiscelanea('PUNTOS')}}</th>
         </tr>
     </thead>
     <tbody>

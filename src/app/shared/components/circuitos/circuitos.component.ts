@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CircuitoService } from 'src/app/services/circuito.service';
 import { Circuito } from 'src/app/interfaces/circuito';
 import { TranslateService } from '@ngx-translate/core';
+import { LenguajeService } from 'src/app/services/lenguaje.service';
 
 
 @Component({
@@ -14,9 +15,11 @@ export class CircuitosComponent {
   selectedYear: string = '';
   years = [  "2023",  "2022",  "2021",  "2020",  "2019",  "2018",  "2017",  "2016",  "2015",  "2014",  "2013",  "2012",  "2011",  "2010",  "2009",  "2008",  "2007",  "2006",  "2005",  "2004",  "2003",  "2002",  "2001",  "2000"];
 
-  constructor(private circuitoService: CircuitoService, private traductor: TranslateService) {
-    //A la variable traductor se le asigna el diccionario esp
-    this.traductor.use('esp');
+  constructor(private circuitoService: CircuitoService, private traductor: TranslateService,
+    private lenguajeService: LenguajeService) {
+    const lenguajeActual = this.lenguajeService.getSelectedLanguage();
+      this.traductor.setDefaultLang(lenguajeActual);
+      this.traductor.use(lenguajeActual);
   }
 
    /*
@@ -65,5 +68,9 @@ export class CircuitosComponent {
   traducirCircuito(circuito: string): string{
     const traduccion = this.traductor.instant('CIRCUITO.' + circuito);
     return traduccion !== 'CIRCUITO.' + circuito ? traduccion : circuito;
+  }
+
+  traducirMiscelanea(string: string): string {
+    return this.traductor.instant('MISC.' + string);
   }
 }

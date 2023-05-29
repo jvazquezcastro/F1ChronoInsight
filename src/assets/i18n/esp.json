@@ -104,7 +104,25 @@
         "Korean International Circuit": "Circuito Internacional de Korea",
         "Valencia Street Circuit": "Circuito callejero de Valencia",
         "Circuit de Nevers Magny-Cours": "Circuito de Nevers Magny-Cours"
+    },
+    "MISC": {
+        "NACIONALIDAD": "Nacionalidad",
+        "FECHA_NACIMIENTO": "Fecha de nacimiento",
+        "DORSAL": "Dorsal",
+        "MAS_INFORMACION": "Más información",
+        "PILOTO": "Piloto",
+        "PILOTOS": "Pilotos",
+        "ESCUDERIA": "Escudería",
+        "ESCUDERIAS": "Escuderías",
+        "CIRCUITOS": "Circuitos",
+        "TEMPORADAS": "Temporadas",
+        "POSICION": "Posición",
+        "NOMBRE": "Nombre",
+        "VICTORIAS": "Victorias",
+        "PUNTOS": "Puntos",
+        "INICIO": "Inicio",
+        "ERROR1": "¡Ha ocurrido un error!",
+        "ERROR2": "La ruta a la que intenta acceder no se encuentra o no existe.",
+        "ERROR3": "Para volver a la página principal pulse"
     }
-
-
 }

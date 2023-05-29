@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Piloto } from 'src/app/interfaces/piloto';
+import { LenguajeService } from 'src/app/services/lenguaje.service';
 import { PilotoService } from 'src/app/services/piloto.service';
+import { TranslationService } from 'src/app/services/traduccion.service';
 
 @Component({
   selector: 'app-pilotos',
@@ -11,8 +13,11 @@ import { PilotoService } from 'src/app/services/piloto.service';
 export class PilotosComponent {
   pilotos: Piloto[] = [];
 
-  constructor(private pilotoService: PilotoService, private traductor: TranslateService) {
-    this.traductor.use('esp');
+  constructor(private pilotoService: PilotoService, private traductor: TranslateService,
+    private lenguajeService: LenguajeService, private translationService: TranslationService) {
+      const lenguajeActual = this.lenguajeService.getSelectedLanguage();
+      this.traductor.setDefaultLang(lenguajeActual);
+      this.traductor.use(lenguajeActual);
   }
 
   //Al inicializar el componente se la función que carga los pilotos
@@ -65,4 +70,9 @@ export class PilotosComponent {
   traducirNacionalidad(nacionalidad: string): string {
     return this.traductor.instant('NACIONALIDAD.' + nacionalidad);
   }
+
+  traducirMiscelanea(string: string): string {
+    return this.traductor.instant('MISC.' + string);
+  }
+
 }

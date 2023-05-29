@@ -17,7 +17,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslationService } from 'src/app/services/traduccion.service';
+import { LenguajeService } from 'src/app/services/lenguaje.service';
+
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
@@ -48,7 +51,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       }
     }),
   ],
-  providers: [],
+  providers: [LenguajeService, TranslateService],
   bootstrap: [AppComponent],
   exports: []
 })

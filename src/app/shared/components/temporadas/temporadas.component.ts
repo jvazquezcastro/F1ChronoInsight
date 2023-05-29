@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Piloto } from 'src/app/interfaces/piloto';
+import { LenguajeService } from 'src/app/services/lenguaje.service';
 import { PilotoService } from 'src/app/services/piloto.service';
 
 @Component({
@@ -12,7 +14,12 @@ export class TemporadasComponent {
   selectedYear: string = '';
   years = ["2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000"];
 
-  constructor(private pilotoService: PilotoService) {}
+  constructor(private pilotoService: PilotoService, private traductor: TranslateService,
+    private lenguajeService: LenguajeService) {
+    const lenguajeActual = this.lenguajeService.getSelectedLanguage();
+      this.traductor.setDefaultLang(lenguajeActual);
+      this.traductor.use(lenguajeActual);
+  }
 
    /*
   Función que actualiza variables y llama a funciones al seleccionar un año
@@ -49,5 +56,9 @@ export class TemporadasComponent {
         return parseInt(a.posicion) - parseInt(b.posicion);
       });
     });
+  }
+
+  traducirMiscelanea(string: string): string {
+    return this.traductor.instant('MISC.' + string);
   }
 }

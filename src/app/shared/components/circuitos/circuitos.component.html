@@ -2,8 +2,8 @@
     <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
 
-<div class="titulo">Circuitos
-    <a href="http://localhost:4200/" class="inicio">Inicio</a>
+<div class="titulo">{{ traducirMiscelanea('CIRCUITOS')}}
+    <a href="http://localhost:4200/" class="inicio">{{ traducirMiscelanea('INICIO')}}</a>
 </div>
 
 <section class="circuitos">
@@ -19,7 +19,7 @@
             <p>{{ traducirCiudad(circuito.ciudad) }}, {{ traducirPais(circuito.pais) }}</p>
         </mat-card-content>
         <mat-card-actions class="actions">
-            <a mat-raised-button color="warn" href="{{circuito.url}}" target="_blank">Más Información</a>
+            <a mat-raised-button color="warn" href="{{circuito.url}}" target="_blank">{{ traducirMiscelanea('MAS_INFORMACION')}}</a>
         </mat-card-actions>
     </mat-card>
 </section>

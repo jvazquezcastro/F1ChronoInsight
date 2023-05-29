@@ -1,5 +1,5 @@
-<div class="titulo">Pilotos
-    <a href="http://localhost:4200/" class="inicio">Inicio</a>
+<div class="titulo">{{ traducirMiscelanea('PILOTOS')}}
+    <a href="http://localhost:4200/" class="inicio">{{ traducirMiscelanea('INICIO')}}</a>
 </div>
 
 <section class="pilotos">
@@ -8,16 +8,16 @@
             {{ piloto.nombre }} {{piloto.apellido}}
         </mat-card-header>
         <mat-card-content class="content">
-            <p>Nacionalidad: {{ traducirNacionalidad(piloto.nacionalidad) }}</p>
+            <p>{{ traducirMiscelanea('NACIONALIDAD')}}: {{ traducirNacionalidad(piloto.nacionalidad) }}</p>
             <img src="../../../../assets/flags/64/{{ piloto.nacionalidad }}.png">
             <p><img class="pilotosImg" src="../../../../assets/pilotos/{{ piloto.pilotoId }}.png"></p>
         </mat-card-content>
         <mat-card-content>
-            <p>Dorsal: {{ piloto.dorsal}} </p>
-            <p>Fecha de nacimiento: {{ piloto.fecha }}</p>
+            <p>{{ traducirMiscelanea('DORSAL')}}: {{ piloto.dorsal}} </p>
+            <p>{{ traducirMiscelanea('FECHA_NACIMIENTO')}}: {{ piloto.fecha }}</p>
         </mat-card-content>
         <mat-card-actions class="actions">
-            <a mat-raised-button color="warn" href="{{piloto.url}}" target="_blank">Más Información</a>
+            <a mat-raised-button color="warn" href="{{piloto.url}}" target="_blank">{{ traducirMiscelanea('MAS_INFORMACION')}}</a>
         </mat-card-actions>
     </mat-card>
 </section>

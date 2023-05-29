@@ -2,8 +2,8 @@
     <mat-chip-option color="warn" *ngFor="let year of years" (click)="onYearSelected(year)">{{ year }}</mat-chip-option>
 </mat-chip-listbox>
 
-<div class="titulo">Escuderias
-    <a href="http://localhost:4200/" class="inicio">Inicio</a>
+<div class="titulo">{{traducirMiscelanea('ESCUDERIAS')}}
+    <a href="http://localhost:4200/" class="inicio">{{traducirMiscelanea('INICIO')}}</a>
 </div>
 
 
@@ -21,7 +21,7 @@
                 <div class="pilotos">
                     <div *ngFor="let piloto of getPilotosByEscuderiaId(escuderia.escuderiaId); let i = index">
                         <div *ngIf="i < 2">
-                            <p class="pilotoNombre">Piloto {{ i + 1 }}</p>
+                            <p class="pilotoNombre">{{traducirMiscelanea('PILOTO')}} {{ i + 1 }}</p>
                             <p>{{ piloto.nombre }} {{ piloto.apellido }} ({{ piloto.dorsal }})</p>
                             <p><img class="pilotoFlag" src="../../../../assets/flags/48/{{ piloto.nacionalidad }}.png"></p>
                             <img style="width: 130px; height: 130px;" src="../../../../assets/pilotos/{{ piloto.pilotoId }}.png">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <mat-card-actions class="actions">
-                <a mat-raised-button color="warn" href="{{ escuderia.url }}" target="_blank">Más Información</a>
+                <a mat-raised-button color="warn" href="{{ escuderia.url }}" target="_blank">{{traducirMiscelanea('MAS_INFORMACION')}}</a>
             </mat-card-actions>
         </mat-card>
     </div>
