@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 
-import { TranslationService } from 'src/app/services/traduccion.service';
 import { LenguajeService } from 'src/app/services/lenguaje.service';
 
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
