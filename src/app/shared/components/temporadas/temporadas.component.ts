@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Piloto } from 'src/app/interfaces/piloto';
 import { LenguajeService } from 'src/app/services/lenguaje.service';
 import { PilotoService } from 'src/app/services/piloto.service';
+import { TemporadaService } from 'src/app/services/temporada.service';
 
 @Component({
   selector: 'app-temporadas',
@@ -14,7 +15,7 @@ export class TemporadasComponent {
   selectedYear: string = '';
   years = ["2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000"];
 
-  constructor(private pilotoService: PilotoService, private traductor: TranslateService,
+  constructor(private temporadaService: TemporadaService, private traductor: TranslateService,
     private lenguajeService: LenguajeService) {
     const lenguajeActual = this.lenguajeService.getSelectedLanguage();
       this.traductor.setDefaultLang(lenguajeActual);
@@ -35,7 +36,7 @@ export class TemporadasComponent {
   Función que carga los pilotos mediante la peticion del service y los guarda en un array de Pilotos
   */
   loadDrivers() {
-    this.pilotoService.getDriversFromSeason(this.selectedYear).subscribe((response: any) => {
+    this.temporadaService.getSeasonByYear(this.selectedYear).subscribe((response: any) => {
       const data = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
       console.log('Year selected:', this.selectedYear);
       this.pilotos = data.map((piloto: any) => {

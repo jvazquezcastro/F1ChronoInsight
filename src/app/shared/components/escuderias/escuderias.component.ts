@@ -33,8 +33,9 @@ export class EscuderiasComponent {
     this.selectedYear = year;
     //Vaciar el array de pilotos para que se refresquen al cambiar de año
     this.pilotos.splice(0);
-    this.loadDriversByConstructors();
     this.loadConstructors();
+    this.loadDriversByConstructors();
+
   }
 
   /*
